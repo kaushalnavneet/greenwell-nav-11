@@ -12,3 +12,9 @@ spec:
       params:
         - name: apikey
           value: $(params.apikey)
+    - name: sample-out-task
+      taskRef:
+        name: sample-out-task
+      params:
+        - name: apikey
+          value: $(params.apikey)
