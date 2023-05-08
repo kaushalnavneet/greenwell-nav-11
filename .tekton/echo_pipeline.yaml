@@ -6,15 +6,28 @@ spec:
   inputs:
     params:
       - name: buildnumber
-        description: test       
+        description: test   
+  params:
+    - name: apikey
   steps:
     - name: task-two-step-four
       image: ubuntu
       env:
         - name: BUILD_NUMBER
           value: $(inputs.params.buildnumber)
+        - name: APIKEY
+          value: $(params.apikey)
       command: ['bash']
-      args: ['-c', 'for i in {1..3}; do echo BUILD_NUMBER 2 && sleep 3; done;'] 
+      args: 
+        - |
+          echo "Print logs"
+          
+          echo "Hello ${APIKEY}"
+          
+          for i in {1..3};
+            do echo BUILD_NUMBER 2 && sleep 3;
+          done;
+          
 ---
 apiVersion: tekton.dev/v1beta1
 kind: Pipeline
