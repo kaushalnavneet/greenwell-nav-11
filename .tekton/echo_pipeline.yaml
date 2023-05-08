@@ -9,6 +9,7 @@ spec:
         description: test   
   params:
     - name: apikey
+      default: 'abc'
   steps:
     - name: task-two-step-four
       image: ubuntu
